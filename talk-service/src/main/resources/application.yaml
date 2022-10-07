@@ -7,5 +7,14 @@ spring:
     password: postgres
     driver-class-name: org.postgresql.Driver
 
+server:
+  port: 9001
 
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka
+  instance:
+    prefer-ip-address: true
 
