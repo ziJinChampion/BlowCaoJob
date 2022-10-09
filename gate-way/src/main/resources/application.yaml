@@ -1,11 +1,37 @@
 spring:
   application:
     name: gate-way
-  datasource:
-    url: jdbc:postgresql://localhost:5432/blow
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+
+      routes:
+
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+        - Path=/user/**
+
+
+
+server:
+  port: 8080
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka
+  instance:
+    prefer-ip-address: true
 
 
 
