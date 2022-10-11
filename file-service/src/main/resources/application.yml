@@ -1,0 +1,23 @@
+server:
+  port: 9008
+spring:
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka
+  instance:
+    prefer-ip-address: true
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  metrics:
+    enabled: true
