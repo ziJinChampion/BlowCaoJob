@@ -21,3 +21,7 @@ feign:
 hystrix:
   metrics:
     enabled: true
+
+fdfs:
+  client:
+    conf: fdfs_client.conf
