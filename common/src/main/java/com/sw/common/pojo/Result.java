@@ -1,29 +1,41 @@
 package com.sw.common.pojo;
 
+import lombok.Getter;
+import lombok.Setter;
 
-public class Result<T> {
+import java.io.Serializable;
 
-    private Boolean flag;
+@Getter
+@Setter
+public class Result<T> implements Serializable {
+    private boolean flag;
     private Integer code;
     private String message;
     private T data;
 
-    public Result(Boolean flag, Integer code, String message, Object data) {
+    public Result(boolean flag, Integer code, String message, Object data) {
         this.flag = flag;
         this.code = code;
         this.message = message;
         this.data = (T) data;
     }
 
-    public Result(Boolean flag, Integer code, String message) {
+    public Result(boolean flag, Integer code, Object data) {
+        this.flag = flag;
+        this.code = code;
+        this.message = message;
+        this.data = (T) data;
+    }
+
+    public Result(boolean flag, Integer code, String message) {
         this.flag = flag;
         this.code = code;
         this.message = message;
     }
 
-    public Result(){
+    public Result() {
         this.flag = true;
         this.code = StatusCode.OK;
-        this.message = "success";
+        this.message = "操作成功!";
     }
 }

@@ -20,4 +20,9 @@ public class FastDFSFile {
 
     private String author;
 
+    public FastDFSFile(String name, byte[] content, String ext) {
+        this.name = name;
+        this.content = content;
+        this.ext = ext;
+    }
 }
