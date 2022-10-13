@@ -12,13 +12,24 @@ spring:
               - POST
               - PUT
               - DELETE
+              - PATCH
+              - OPTION
 
       routes:
 
-      - id: user-service
-        uri: lb://user-service
-        predicates:
-        - Path=/user/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix= 1
+
+        - id: talk-service
+          uri: lb://talk-service
+          predicates:
+            - Path=/talk/**
+          filters:
+            - StripPrefix= 1
 
 
 
